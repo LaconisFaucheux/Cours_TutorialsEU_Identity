@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nicolas\\OneDrive\\Documents\\1_DOCUMENTS\\4_COURS\\COURS_UDEMY\\DenisPanjuta\\ASP\\IdentityApp\\IdentityApp\\IdentityApp.csproj": {}
+    "C:\\Users\\Lacon\\OneDrive\\Documents\\1_DOCUMENTS\\4_COURS\\COURS_UDEMY\\DenisPanjuta\\ASP\\IdentityApp\\IdentityApp\\IdentityApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nicolas\\OneDrive\\Documents\\1_DOCUMENTS\\4_COURS\\COURS_UDEMY\\DenisPanjuta\\ASP\\IdentityApp\\IdentityApp\\IdentityApp.csproj": {
+    "C:\\Users\\Lacon\\OneDrive\\Documents\\1_DOCUMENTS\\4_COURS\\COURS_UDEMY\\DenisPanjuta\\ASP\\IdentityApp\\IdentityApp\\IdentityApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicolas\\OneDrive\\Documents\\1_DOCUMENTS\\4_COURS\\COURS_UDEMY\\DenisPanjuta\\ASP\\IdentityApp\\IdentityApp\\IdentityApp.csproj",
+        "projectUniqueName": "C:\\Users\\Lacon\\OneDrive\\Documents\\1_DOCUMENTS\\4_COURS\\COURS_UDEMY\\DenisPanjuta\\ASP\\IdentityApp\\IdentityApp\\IdentityApp.csproj",
         "projectName": "IdentityApp",
-        "projectPath": "C:\\Users\\Nicolas\\OneDrive\\Documents\\1_DOCUMENTS\\4_COURS\\COURS_UDEMY\\DenisPanjuta\\ASP\\IdentityApp\\IdentityApp\\IdentityApp.csproj",
-        "packagesPath": "C:\\Users\\Nicolas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nicolas\\OneDrive\\Documents\\1_DOCUMENTS\\4_COURS\\COURS_UDEMY\\DenisPanjuta\\ASP\\IdentityApp\\IdentityApp\\obj\\",
+        "projectPath": "C:\\Users\\Lacon\\OneDrive\\Documents\\1_DOCUMENTS\\4_COURS\\COURS_UDEMY\\DenisPanjuta\\ASP\\IdentityApp\\IdentityApp\\IdentityApp.csproj",
+        "packagesPath": "C:\\Users\\Lacon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lacon\\OneDrive\\Documents\\1_DOCUMENTS\\4_COURS\\COURS_UDEMY\\DenisPanjuta\\ASP\\IdentityApp\\IdentityApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nicolas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lacon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,6 +27,7 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,6 +65,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[6.0.21, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.16, )"
             }
           },
           "imports": [
@@ -85,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

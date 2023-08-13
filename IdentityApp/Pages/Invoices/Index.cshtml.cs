@@ -9,6 +9,7 @@ using IdentityApp.Data;
 using IdentityApp.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using IdentityApp.Authorizations;
 
 namespace IdentityApp.Pages.Invoices
 {
@@ -27,13 +28,18 @@ namespace IdentityApp.Pages.Invoices
 
         public async Task OnGetAsync()
         {
-            if (Context.Invoice != null)
+            var invoices = from i in Context.Invoice select i;
+
+            var isManager = User.IsInRole(Constants.InvoiceManagersRole);
+
+            var currentUserId = UserManager.GetUserId(User);
+
+            if (!isManager)
             {
-                var currentUserID = UserManager.GetUserId(User);
-                Invoice = await Context.Invoice.
-                    Where(i => i.CreatorId == currentUserID).
-                    ToListAsync();
+                invoices = invoices.Where(i => i.CreatorId == currentUserId);   
             }
+
+            Invoice = await invoices.ToListAsync();
         }
     }
 }

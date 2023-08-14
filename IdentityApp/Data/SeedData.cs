@@ -14,8 +14,13 @@ namespace IdentityApp.Data
             using (var context = new ApplicationDbContext(
                 serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
+                //Manager
                 var managerUserId = await EnsureUser(serviceProvider, "manager@manager.net", password);
                 await EnsureRole(serviceProvider, managerUserId, Constants.InvoiceManagersRole);
+
+                //Admin
+                var adminUserId = await EnsureUser(serviceProvider, "admin@admin.net", password);
+                await EnsureRole(serviceProvider, adminUserId, Constants.InvoiceAdminRole);
             }
         }
         private static async Task<string> EnsureUser(

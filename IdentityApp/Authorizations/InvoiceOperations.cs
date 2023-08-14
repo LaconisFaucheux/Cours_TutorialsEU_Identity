@@ -21,11 +21,11 @@ namespace IdentityApp.Authorizations
         {
             Name = Constants.DeleteOperationName
         };
-        public static OperationAuthorizationRequirement Approved = new ()
+        public static OperationAuthorizationRequirement Approve = new ()
         {
             Name = Constants.ApprovedOperationName
         };
-        public static OperationAuthorizationRequirement Rejected = new ()
+        public static OperationAuthorizationRequirement Reject = new ()
         {
             Name = Constants.RejectedOperationName
         };
@@ -42,5 +42,6 @@ namespace IdentityApp.Authorizations
         public static readonly string RejectedOperationName = "Rejected";
 
         public static readonly string InvoiceManagersRole   = "InvoiceManager";
+        public static readonly string InvoiceAdminRole = "InvoiceAdmin";
     }
 }

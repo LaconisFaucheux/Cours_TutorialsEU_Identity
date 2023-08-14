@@ -23,7 +23,7 @@ namespace IdentityApp.Pages.Invoices
         {
         }
 
-      public Invoice Invoice { get; set; } = default!; 
+        public Invoice Invoice { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,25 +32,53 @@ namespace IdentityApp.Pages.Invoices
                 return NotFound();
             }
 
-            var invoice = await Context.Invoice.FirstOrDefaultAsync(m => m.InvoiceId == id);            
+            var invoice = await Context.Invoice.FirstOrDefaultAsync(m => m.InvoiceId == id);
 
             if (invoice == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Invoice = invoice;
             }
 
-            var isAuthorized = await AuthorizationService.AuthorizeAsync(User, Invoice, InvoiceOperations.Read);
+            var isCreator = await AuthorizationService.AuthorizeAsync(User, Invoice, InvoiceOperations.Read);
+            var isManager = User.IsInRole(Constants.InvoiceManagersRole);
+
+            if (!isCreator.Succeeded && !isManager)
+            {
+                return Forbid();
+            }
+
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int id, InvoiceStatus status)
+        {
+            Invoice = await Context.Invoice.FindAsync(id);
+
+            if (Invoice == null)
+            {
+                return NotFound();
+            }
+
+            var invoiceOperation = status == InvoiceStatus.Approved ? InvoiceOperations.Approve : InvoiceOperations.Reject;
+
+            var isAuthorized = await AuthorizationService.AuthorizeAsync(User, Invoice, invoiceOperation);
 
             if (!isAuthorized.Succeeded)
             {
                 return Forbid();
             }
 
-            return Page();
+            Invoice.Status = status;
+            Context.Invoice.Update(Invoice);
+
+            await Context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+
         }
     }
 }
